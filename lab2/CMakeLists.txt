@@ -3,4 +3,4 @@ project(os_lab2)
 
 set (CMAKE_CXX_STANDART 17)
 
-add_executable(os_lab2 card52.cpp)
+add_executable(os_lab2 card52.c)
