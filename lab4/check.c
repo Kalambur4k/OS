@@ -8,7 +8,7 @@ int main()
 {
     char buf[MAXLEN];
     int buf_size = MAXLEN;
-    char *bufp = buf; // чтобы компилятор не ругался на несоответствие типов
+    char *bufp = buf; 
     
     while ( getline(&bufp,&buf_size,stdin) != EOF ) {
         if ( isupper( buf[0] ) ) {
