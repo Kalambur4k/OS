@@ -18,16 +18,16 @@ void *calc_probability(void *arg) {
     for ( i = 0; i < NCARDS - 1; i++ ) {
         cards[i] = i;
     }
-    unsigned int seed = time(NULL) + (unsigned int) pthread_self(); // текущее время плюс id нити
+    unsigned int seed = time(NULL) + (unsigned int) pthread_self(); 
     long j;
     for ( j = 0; j < rounds; j++ ) {
         int card1 = rand_r(&seed) % NCARDS;
-        cards[card1] = NCARDS - 1; // меняем местами card1 и последнюю карту
-        int card2 = rand_r(&seed) % ( NCARDS - 1 ); // меняем местами card2 и предпоследнюю карту
-        if ( cards[card2] % SUIT_SIZE == card1 % SUIT_SIZE ) { // сравниваем последнюю и предпоследнюю (будем считать их "верхними" в колоде)
+        cards[card1] = NCARDS - 1; 
+        int card2 = rand_r(&seed) % ( NCARDS - 1 ); 
+        if ( cards[card2] % SUIT_SIZE == card1 % SUIT_SIZE ) { 
             (*success)++;
         }
-        cards[card1] = card1; //возвращаем все как было
+        cards[card1] = card1; 
     }
     
     pthread_exit(success);
