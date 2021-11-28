@@ -6,7 +6,7 @@
 
 #define MAXLEN 200
 
-// check вернет нам результат не на каждую нашу запись, поэтому пусть его вывод читает и дублирует на stdout отдельный тред
+
 void *read_check_errors(void *arg) {
     int fd = *(int*)arg;
     char buf[MAXLEN];
@@ -30,7 +30,7 @@ int main(void)
     //input filename
     printf("Input file name: ");
     scanf("%[^\n]s", fname);
-    getc(stdin); // убрать перевод строки
+    getc(stdin); 
     //open file
     FILE* fp = fopen(fname, "w");
     if (!fp) {
