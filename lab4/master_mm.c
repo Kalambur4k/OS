@@ -86,7 +86,7 @@ int main(void)
     //input filename
     printf("Input file name: ");
     scanf("%[^\n]s", fname);
-    getc(stdin); // убрать перевод строки
+    getc(stdin); // ГіГЎГ°Г ГІГј ГЇГҐГ°ГҐГўГ®Г¤ Г±ГІГ°Г®ГЄГЁ
     fp = fopen(fname, "w");
     if (!fp) {
         perror("Cannot create file");
@@ -112,10 +112,9 @@ int main(void)
     //PARENT WORK
     else
     {
-        // в первом байте разделяемой памяти будем хранить результат проверки: 0 = ok, 1 = не ok
-        // во втором байте разместим первую букву строки, которую нам и нужно будет проверить
+        
         char *test = addr + 1;
-        //printf( "Shared memory is addr = %p, test = %p\n", addr, test );
+        
         
         char buffer[MAXLEN];
         char *buf = buffer;
@@ -124,7 +123,7 @@ int main(void)
         int len = getline(&buf,&buf_size,stdin); 
         while ( len != EOF ) {
 
-            //printf( "Master: %zu len %s", len, buf );
+            
             *test = buffer[0];
 
             if ( sem_post( sema ) < 0 ) {
